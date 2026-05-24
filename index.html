@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nguyễn Minh Thuận - Project Manager & Construction Engineer | 7+ năm kinh nghiệm quản lý dự án xây dựng chuyên nghiệp">
+    <meta name="keywords" content="Project Manager, Construction Engineer, Kỹ sư xây dựng, Quản lý dự án, Việt Nam">
+    <meta name="author" content="Nguyễn Minh Thuận">
+    <meta property="og:title" content="Nguyễn Minh Thuận - Project Manager & Construction Engineer">
+    <meta property="og:description" content="Portfolio chuyên nghiệp của Kỹ sư Xây dựng & Quản lý Dự án">
+    <meta property="og:type" content="website">
+    <title>Nguyễn Minh Thuận | Project Manager & Construction Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================
+           CSS VARIABLES & ROOT
+        ============================================ */
+        :root {
+            --navy-dark: #0a1628;
+            --navy-medium: #112240;
+            --navy-light: #1a365d;
+            --blue-accent: #2563eb;
+            --blue-bright: #3b82f6;
+            --red-accent: #c0392b;
+            --red-strong: #e74c3c;
+            --red-dark: #8b1a1a;
+            --gold: #d4a843;
+            --gold-light: #f0d078;
+            --white: #ffffff;
+            --gray-100: #f7f8fc;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --text-dark: #1a1a2e;
+            --text-body: #374151;
+            --text-light: #94a3b8;
+            --gradient-dark: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #0f2444 100%);
+            --gradient-red: linear-gradient(135deg, #c0392b 0%, #8b1a1a 100%);
+            --gradient-blue: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-xl: 0 30px 80px rgba(0,0,0,0.25);
+            --shadow-blue: 0 10px 40px rgba(37,99,235,0.3);
+            --shadow-red: 0 10px 40px rgba(192,57,43,0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.2s ease;
+            --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================================
+           RESET & BASE
+        ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-body);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           LOADING SCREEN
+        ============================================ */
+        #loader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--navy-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--red-accent);
+            border-right-color: var(--blue-bright);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .nav-logo span {
+            color: var(--red-accent);
+        }
+
+        .nav-logo .dot {
+            color: var(--blue-bright);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.75);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 4px 0;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 0; height: 2px;
+            background: var(--red-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-red);
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-red);
+            transition: var(--transition) !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 44px rgba(192,57,43,0.4);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 10001;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--navy-dark);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.25) saturate(0.8);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 22, 40, 0.88) 0%,
+                rgba(26, 54, 93, 0.75) 50%,
+                rgba(10, 22, 40, 0.85) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px; height: 3px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            width: 100%;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image-wrapper {
+            width: 320px;
+            height: 320px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,255,255,0.1);
+            transform: rotate(-3deg);
+            transition: var(--transition);
+        }
+
+        .hero-image-wrapper:hover {
+            transform: rotate(0deg) scale(1.03);
+            border-color: rgba(192, 57, 43, 0.5);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: -15px; right: -15px;
+            background: var(--gradient-red);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: var(--shadow-red);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-subtitle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue-bright);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--red-accent);
+        }
+
+        .hero-name {
+            font-size: 58px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .hero-name span {
+            background: linear-gradient(135deg, var(--red-accent) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-typing {
+            font-size: 22px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 24px;
+            min-height: 34px;
+        }
+
+        .hero-typing .typing-cursor {
+            color: var(--red-accent);
+            animation: blink 1s step-end infinite;
+            font-weight: 300;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-red);
+            color: var(--white);
+            box-shadow: var(--shadow-red);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(192,57,43,0.45);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-3px);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-mouse::after {
+            content: '';
+            position: absolute;
+            top: 8px; left: 50%;
+            transform: translateX(-50%);
+            width: 3px; height: 8px;
+            background: var(--red-accent);
+            border-radius: 3px;
+            animation: scroll-down 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll-down {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 22px; }
+        }
+
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ============================================
+           SECTION COMMON STYLES
+        ============================================ */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--red-accent);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--red-accent);
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+        ============================================ */
+        .about {
+            background: var(--gray-100);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%; height: 450px;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-experience-badge {
+            position: absolute;
+            bottom: -20px; right: -20px;
+            background: var(--gradient-red);
+            color: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-red);
+        }
+
+        .about-experience-badge .number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .about-experience-badge .text {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .about-content h3 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-content h3 span {
+            color: var(--red-accent);
+        }
+
+        .about-content p {
+            color: var(--text-body);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .about-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .about-highlight-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-highlight-item i {
+            color: var(--red-accent);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .about-highlight-item span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .about-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .about-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .about-info-item i {
+            color: var(--blue-accent);
+            width: 20px;
+            text-align: center;
+        }
+
+        .about-info-item strong {
+            color: var(--text-dark);
+        }
+
+        /* ============================================
+           EXPERIENCE / TIMELINE
+        ============================================ */
+        .experience {
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--blue-accent), var(--red-accent));
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+            padding-right: calc(50% + 40px);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            padding-left: calc(50% + 40px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 20px; height: 20px;
+            background: var(--white);
+            border: 4px solid var(--red-accent);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 4px rgba(192,57,43,0.15);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--red-accent);
+            box-shadow: 0 0 0 8px rgba(192,57,43,0.2);
+        }
+
+        .timeline-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(192,57,43,0.2);
+        }
+
+        .timeline-card .position {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .timeline-card .company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red-accent);
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-card .duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+        }
+
+        .timeline-card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .timeline-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--blue-accent);
+            font-weight: bold;
+        }
+
+        .timeline-card .achievement-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(192,57,43,0.1), rgba(37,99,235,0.1));
+            color: var(--red-accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* ============================================
+           SKILLS SECTION
+        ============================================ */
+        .skills {
+            background: var(--gradient-dark);
+            position: relative;
+        }
+
+        .skills .section-title { color: var(--white); }
+        .skills .section-subtitle { color: rgba(255,255,255,0.5); }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--gradient-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-slow);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 48px; height: 48px;
+            background: var(--gradient-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .skill-name {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red-accent), var(--blue-bright));
+            border-radius: 6px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .skill-bar.animated {
+            /* width set via JS */
+        }
+
+        .skill-percent {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* ============================================
+           PORTFOLIO SECTION
+        ============================================ */
+        .portfolio {
+            background: var(--gray-100);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-image-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,22,40,0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .project-card:hover .project-image-overlay {
+            opacity: 1;
+        }
+
+        .project-value {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: var(--gradient-red);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: var(--shadow-red);
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content h3 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .project-meta-item i {
+            color: var(--blue-accent);
+            font-size: 12px;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .project-tag {
+            background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(192,57,43,0.1));
+            color: var(--blue-accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           EDUCATION SECTION
+        ============================================ */
+        .education {
+            background: var(--white);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .education-column h3 {
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .education-column h3 i {
+            color: var(--red-accent);
+        }
+
+        .edu-card {
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--red-accent);
+            transition: var(--transition);
+        }
+
+        .edu-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .edu-card .degree {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .edu-card .school {
+            color: var(--blue-accent);
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .edu-card .year {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+        }
+
+        .edu-card .detail {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .cert-card {
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-left: 4px solid var(--blue-accent);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-icon {
+            width: 48px; height: 48px;
+            background: var(--gradient-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .cert-info p {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        /* ============================================
+           STATISTICS SECTION
+        ============================================ */
+        .statistics {
+            background: linear-gradient(135deg, rgba(10,22,40,0.95), rgba(26,54,93,0.9)),
+                        url('https://images.pexels.com/photos/4170184/pexels-photo-4170184.jpeg') center/cover no-repeat fixed;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 36px 24px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-8px);
+        }
+
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--red-accent);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-number span {
+            color: var(--red-accent);
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+        ============================================ */
+        .contact {
+            background: var(--gray-100);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding-right: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .contact-info h3 span { color: var(--red-accent); }
+
+        .contact-info > p {
+            color: var(--gray-500);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item-icon {
+            width: 50px; height: 50px;
+            background: var(--gradient-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-red);
+        }
+
+        .contact-item-text h4 {
+            font-size: 14px;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text p {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .social-link {
+            width: 44px; height: 44px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-red);
+            color: var(--white);
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-red);
+        }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: var(--text-dark);
+            background: var(--gray-100);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue-accent);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-red);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(192,57,43,0.4);
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--navy-dark);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-brand .nav-logo {
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 360px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 6px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 24px 0;
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+        }
+
+        .footer-bottom a {
+            color: var(--red-accent);
+        }
+
+        /* ============================================
+           SCROLL TO TOP
+        ============================================ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px; height: 48px;
+            background: var(--gradient-red);
+            color: var(--white);
+            border: none;
+            border-radius: 14px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: var(--shadow-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(192,57,43,0.5);
+        }
+
+        /* ============================================
+           ANIMATIONS - SCROLL REVEAL
+        ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ============================================
+           RESPONSIVE - TABLET
+        ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content { gap: 50px; }
+            .hero-name { font-size: 46px; }
+            .hero-image-wrapper { width: 260px; height: 260px; }
+
+            .about-grid { gap: 40px; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .timeline::before { left: 20px; }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-right: 0;
+                padding-left: 60px;
+            }
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ============================================
+           RESPONSIVE - MOBILE
+        ============================================ */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background: rgba(10, 22, 40, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px 40px;
+                gap: 24px;
+                transition: var(--transition);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.open { right: 0; }
+            .nav-toggle { display: flex; }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+                padding-top: 100px;
+            }
+
+            .hero-image-wrapper {
+                width: 200px; height: 200px;
+                border-radius: 50%;
+                transform: rotate(0deg);
+                margin: 0 auto;
+            }
+
+            .hero-subtitle { justify-content: center; }
+            .hero-name { font-size: 36px; }
+            .hero-typing { font-size: 18px; }
+            .hero-description { margin: 0 auto 30px; }
+            .hero-buttons { justify-content: center; }
+            .hero-scroll-indicator { display: none; }
+
+            .section { padding: 70px 0; }
+            .section-title { font-size: 30px; }
+
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image img { height: 300px; }
+            .about-highlights { grid-template-columns: 1fr; }
+            .about-info-grid { grid-template-columns: 1fr; }
+
+            .skills-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+            }
+
+            .education-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .stat-number { font-size: 36px; }
+
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name { font-size: 28px; }
+            .hero-typing { font-size: 16px; }
+            .btn { padding: 12px 24px; font-size: 14px; }
+            .stat-card { padding: 24px 16px; }
+            .stat-number { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading</div>
+    </div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-logo">NM<span>Thuan</span><span class="dot">.</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">Giới thiệu</a>
+                <a href="#experience">Kinh nghiệm</a>
+                <a href="#skills">Kỹ năng</a>
+                <a href="#portfolio">Dự án</a>
+                <a href="#education">Học vấn</a>
+                <a href="#contact" class="nav-cta">Liên hệ</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="https://images.pexels.com/photos/4170184/pexels-photo-4170184.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Construction Site Background">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.pexels.com/photos/37362097/pexels-photo-37362097.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nguyễn Minh Thuận - Project Manager">
+                        <div class="hero-image-badge">7+ Năm KN</div>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <div class="hero-subtitle">Project Manager & Engineer</div>
+                    <h1 class="hero-name">Nguyễn Minh<br><span>Thuận</span></h1>
+                    <div class="hero-typing">
+                        <span id="typingText"></span><span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        Kỹ sư xây dựng chuyên nghiệp với hơn 7 năm kinh nghiệm trong quản lý dự án, 
+                        thi công công trình và giám sát hiện trường. Cam kết mang lại chất lượng 
+                        và tiến độ tối ưu cho mọi dự án.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Tải CV
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Liên hệ ngay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Về tôi</div>
+                <h2 class="section-title">Giới Thiệu Cá Nhân</h2>
+                <p class="section-subtitle">Đam mê xây dựng nên những công trình bền vững và chất lượng</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-container reveal-left">
+                    <div class="about-image">
+                        <img src="https://images.pexels.com/photos/32569691/pexels-photo-32569691.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Construction Project">
+                    </div>
+                    <div class="about-experience-badge">
+                        <div class="number">7+</div>
+                        <div class="text">Năm Kinh<br>Nghiệm</div>
+                    </div>
+                </div>
+
+                <div class="about-content reveal-right">
+                    <h3>Xin chào, tôi là <span>Nguyễn Minh Thuận</span></h3>
+                    <p>
+                        Với hơn 7 năm kinh nghiệm trong lĩnh vực xây dựng và quản lý dự án, 
+                        tôi đã tham gia và điều hành nhiều công trình quy mô lớn từ dân dụng 
+                        đến công nghiệp. Sự kết hợp giữa kiến thức kỹ thuật chuyên sâu và 
+                        kỹ năng quản lý linh hoạt giúp tôi đưa ra các giải pháp tối ưu cho 
+                        mỗi dự án.
+                    </p>
+                    <p>
+                        Tôi luôn đặt chất lượng, an toàn và tiến độ lên hàng đầu. Phong cách 
+                        làm việc của tôi là sự kết hợp giữa tính kỷ luật cao độ và khả năng 
+                        thích ứng linh hoạt với mọi tình huống phát sinh trong quá trình thi công.
+                    </p>
+
+                    <div class="about-highlights">
+                        <div class="about-highlight-item">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>Giám sát hiện trường</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Quản lý tiến độ</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>An toàn lao động</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Tối ưu chi phí</span>
+                        </div>
+                    </div>
+
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <i class="fas fa-user"></i>
+                            <span><strong>Họ tên:</strong> Nguyễn Minh Thuận</span>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-phone"></i>
+                            <span><strong>Điện thoại:</strong> 09123456789</span>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>Email:</strong> example@gmail.com</span>
+                        </div>
+                        <div class="about-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span><strong>Địa chỉ:</strong> TP. Hồ Chí Minh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Kinh nghiệm</div>
+                <h2 class="section-title">Lịch Sử Làm Việc</h2>
+                <p class="section-subtitle">Hành trình phát triển sự nghiệp trong ngành xây dựng và quản lý dự án</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Project Manager -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="position">Project Manager</div>
+                        <div class="company">
+                            <i class="fas fa-building"></i>
+                            Công ty CP Đầu tư & Xây dựng Hòa Bình (HBC)
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> 01/2022 - Hiện tại
+                        </div>
+                        <ul>
+                            <li>Quản lý toàn diện các dự án xây dựng dân dụng & thương mại quy mô lớn, giá trị từ 200 - 800 tỷ VNĐ</li>
+                            <li>Lập kế hoạch, phân bổ nguồn lực và điều phối 5+ nhà thầu phụ đồng thời trên hiện trường</li>
+                            <li>Thiết lập hệ thống quản lý rủi ro, giảm thiểu 30% chi phí phát sinh so với dự toán ban đầu</li>
+                            <li>Báo cáo tiến độ trực tiếp cho Ban Giám đốc và Chủ đầu tư, duy trì tỷ lệ hoàn thành đúng hạn 95%</li>
+                        </ul>
+                        <div class="achievement-tag"><i class="fas fa-trophy"></i> Hoàn thành 15+ dự án đúng tiến độ, đạt giải chất lượng công trình</div>
+                    </div>
+                </div>
+
+                <!-- Construction Manager -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="position">Construction Manager</div>
+                        <div class="company">
+                            <i class="fas fa-building"></i>
+                            Công ty TNHH Xây dựng Coteccons
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> 06/2019 - 12/2021
+                        </div>
+                        <ul>
+                            <li>Điều hành và giám sát thi công các công trình cao tầng (25-35 tầng), quản lý đội ngũ 80+ công nhân</li>
+                            <li>Phối hợp với tư vấn giám sát kiểm soát chất lượng vật liệu và bê tông theo tiêu chuẩn TCVN</li>
+                            <li>Tối ưu hóa quy trình thi công, rút ngắn thời gian thi công 15% cho gói thầu kết cấu</li>
+                            <li>Triển khai hệ thống quản lý an toàn lao động, đạt chuẩn OCCUPATIONAL HEALTH & SAFETY</li>
+                        </ul>
+                        <div class="achievement-tag"><i class="fas fa-trophy"></i> Nhận bằng khen "Quản lý Xuất sắc" 2 năm liên tiếp</div>
+                    </div>
+                </div>
+
+                <!-- Site Supervisor -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="position">Site Supervisor</div>
+                        <div class="company">
+                            <i class="fas fa-building"></i>
+                            Công ty CP Xây dựng Central (Cencons)
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> 03/2017 - 05/2019
+                        </div>
+                        <ul>
+                            <li>Giám sát thi công trực tiếp tại hiện trường cho dự án khu dân cư quy mô 5ha, 12 tòa nhà</li>
+                            <li>Kiểm soát chất lượng thi công: cọc khoan nhồi, sàn bê tông, hệ thống chống thấm</li>
+                            <li>Lập biên bản nghiệm thu các hạng mục thi công, đảm bảo đúng bản vẽ và quy chuẩn</li>
+                            <li>Điều phối giao thông và vật tư tại công trường, giảm thiểu thời gian chờ vật liệu</li>
+                        </ul>
+                        <div class="achievement-tag"><i class="fas fa-trophy"></i> Được đề bạt sớm lên Construction Manager nhờ hiệu quả công việc</div>
+                    </div>
+                </div>
+
+                <!-- Project Engineer -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="position">Project Engineer</div>
+                        <div class="company">
+                            <i class="fas fa-building"></i>
+                            Công ty TNHH Tư vấn & Xây dựng ASA
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> 08/2015 - 02/2017
+                        </div>
+                        <ul>
+                            <li>Hỗ trợ kỹ thuật cho dự án xây dựng nhà máy công nghiệp diện tích 20,000m²</li>
+                            <li>Thực hiện kiểm tra khối lượng, lập hồ sơ hoàn công và thanh quyết toán</li>
+                            <li>Tham gia lập phương án thi công (shopdrawing) cho hệ thống kết cấu thép tiền chế</li>
+                            <li>Sử dụng AutoCAD, MS Project trong việc lập và theo dõi tiến độ thi công</li>
+                        </ul>
+                        <div class="achievement-tag"><i class="fas fa-trophy"></i> Hoàn thành dự án nhà máy trước thời hạn 2 tuần</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Năng lực</div>
+                <h2 class="section-title">Kỹ Năng Chuyên Môn</h2>
+                <p class="section-subtitle">Bộ kỹ năng toàn diện trong quản lý và kỹ thuật xây dựng</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="skill-name">Project Management</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="95"></div>
+                    </div>
+                    <div class="skill-percent">95%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <div class="skill-name">AutoCAD / Revit</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="90"></div>
+                    </div>
+                    <div class="skill-percent">90%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-chart-gantt"></i></div>
+                    <div class="skill-name">MS Project / Primavera</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="88"></div>
+                    </div>
+                    <div class="skill-percent">88%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-hard-hat"></i></div>
+                    <div class="skill-name">Construction Supervision</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="92"></div>
+                    </div>
+                    <div class="skill-percent">92%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-check-double"></i></div>
+                    <div class="skill-name">Quality Control</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="90"></div>
+                    </div>
+                    <div class="skill-percent">90%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="skill-name">Safety Management</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="88"></div>
+                    </div>
+                    <div class="skill-percent">88%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="skill-name">Budget Control</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="85"></div>
+                    </div>
+                    <div class="skill-percent">85%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="skill-name">Team Leadership</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="93"></div>
+                    </div>
+                    <div class="skill-percent">93%</div>
+                </div>
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="skill-name">Contract Management</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="82"></div>
+                    </div>
+                    <div class="skill-percent">82%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PORTFOLIO SECTION ========== -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Dự án</div>
+                <h2 class="section-title">Công Trình Tiêu Biểu</h2>
+                <p class="section-subtitle">Những dự án nổi bật đã tham gia quản lý và thi công</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/26238613/pexels-photo-26238613.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Khu đô thị Green Park">
+                        <div class="project-value">500 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Khu Đô Thị Cao Cấp Green Park</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> TP. HCM
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 12 tòa nhà
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2022 - 2024
+                            </div>
+                        </div>
+                        <p class="project-desc">Khu phức hợp dân dụng cao cấp gồm 12 tòa nhà chung cư, diện tích sàn 120,000m² với đầy đủ tiện ích.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Project Manager</span>
+                            <span class="project-tag">Dân dụng</span>
+                            <span class="project-tag">Cao tầng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/31715450/pexels-photo-31715450.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tòa nhà Skyline Tower">
+                        <div class="project-value">350 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tòa Nhà Văn Phòng Skyline Tower</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> Quận 1, TP. HCM
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 32 tầng
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2020 - 2022
+                            </div>
+                        </div>
+                        <p class="project-desc">Tòa nhà văn phòng hạng A, kết cấu thép - bê tông cốt thép, mặt kính Curtain Wall cao cấp.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Construction Manager</span>
+                            <span class="project-tag">Thương mại</span>
+                            <span class="project-tag">Curtain Wall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/32569691/pexels-photo-32569691.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cầu vượt sông Riverside">
+                        <div class="project-value">750 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cầu Vượt Sông Riverside City</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> TP. Thủ Đức
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 1.8km
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2021 - 2024
+                            </div>
+                        </div>
+                        <p class="project-desc">Cầu dây văng hiện đại, nhịp chính 350m, kết cấu thép và bê tông cường độ cao, thiết kế chống động đất.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Project Manager</span>
+                            <span class="project-tag">Hạ tầng</span>
+                            <span class="project-tag">Cầu dây văng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/33719016/pexels-photo-33719016.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trung tâm thương mại Grand Mall">
+                        <div class="project-value">420 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Trung Tâm Thương Mại Grand Mall</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> Bình Dương
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 85,000m²
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2019 - 2021
+                            </div>
+                        </div>
+                        <p class="project-desc">Trung tâm thương mại lớn gồm 5 tầng mua sắm, 2 tầng hầm gửi xe, rạp chiếu phim và khu F&B.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Construction Manager</span>
+                            <span class="project-tag">Thương mại</span>
+                            <span class="project-tag">5 tầng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/31197870/pexels-photo-31197870.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nhà máy VSIP III">
+                        <div class="project-value">280 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Nhà Máy Công Nghiệp VSIP III</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> Bình Dương
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 25,000m²
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2017 - 2018
+                            </div>
+                        </div>
+                        <p class="project-desc">Nhà xưởng kết cấu thép tiền chế, xưởng sản xuất linh kiện điện tử đạt chuẩn quốc tế Clean Room.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Site Supervisor</span>
+                            <span class="project-tag">Công nghiệp</span>
+                            <span class="project-tag">Thép tiền chế</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/19107852/pexels-photo-19107852.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bệnh viện đa khoa">
+                        <div class="project-value">600 Tỷ VNĐ</div>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bệnh Viện Đa Khoa Khu Vực</h3>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> Đồng Nai
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-ruler-combined"></i> 500 giường
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="far fa-calendar"></i> 2015 - 2017
+                            </div>
+                        </div>
+                        <p class="project-desc">Bệnh viện đa khoa 500 giường với hệ thống MEP phức tạp, phòng mổ sterile và khu ICU tiêu chuẩn.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Project Engineer</span>
+                            <span class="project-tag">Y tế</span>
+                            <span class="project-tag">MEP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EDUCATION SECTION ========== -->
+    <section class="section education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Học vấn</div>
+                <h2 class="section-title">Học Vấn & Chứng Chỉ</h2>
+                <p class="section-subtitle">Nền tảng kiến thức và các chứng chỉ chuyên môn</p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-column reveal-left">
+                    <h3><i class="fas fa-graduation-cap"></i> Học vấn</h3>
+
+                    <div class="edu-card">
+                        <div class="degree">Kỹ sư Xây dựng Dân dụng & Công nghiệp</div>
+                        <div class="school">Đại học Xây dựng Hà Nội (MUCE)</div>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2011 - 2015</div>
+                        <div class="detail">
+                            Tốt nghiệp loại Giỏi, GPA: 3.5/4.0. Chuyên ngành Kết cấu & Công nghệ Xây dựng. 
+                            Đồ án tốt nghiệp đạt xuất sắc: "Thiết kế và thi công tòa nhà hỗn hợp 25 tầng".
+                        </div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="degree">Chương trình Quản lý Dự án (MBA)</div>
+                        <div class="school">Đại học Kinh tế TP. Hồ Chí Minh (UEH)</div>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2018 - 2020</div>
+                        <div class="detail">
+                            Bổ sung kiến thức quản trị kinh doanh, quản lý rủi ro dự án và lãnh đạo đội nhóm.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-column reveal-right">
+                    <h3><i class="fas fa-certificate"></i> Chứng chỉ chuyên môn</h3>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <div class="cert-info">
+                            <h4>PMP - Project Management Professional</h4>
+                            <p>Project Management Institute (PMI) - 2021</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-hard-hat"></i></div>
+                        <div class="cert-info">
+                            <h4>Chứng chỉ Chỉ huy trưởng Thi công</h4>
+                            <p>Bộ Xây dựng Việt Nam - 2018</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="cert-info">
+                            <h4>Chứng chỉ Quản lý An toàn Lao động</h4>
+                            <p>Tổng cục Lao động - 2019</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="cert-info">
+                            <h4>Autodesk Certified Professional (Revit)</h4>
+                            <p>Autodesk - 2020</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-chart-gantt"></i></div>
+                        <div class="cert-info">
+                            <h4>Oracle Primavera P6 Certified</h4>
+                            <p>Oracle University - 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATISTICS SECTION ========== -->
+    <section class="statistics" id="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="7">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Năm Kinh Nghiệm</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="fas fa-building"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="50">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Dự Án Hoàn Thành</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="100">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Nhân Sự Quản Lý</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="20">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Khách Hàng Tin Tưởng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Liên hệ</div>
+                <h2 class="section-title">Kết Nối Với Tôi</h2>
+                <p class="section-subtitle">Hãy liên hệ để trao đổi về cơ hội hợp tác và dự án</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <h3>Hãy <span>kết nối</span> với tôi</h3>
+                    <p>
+                        Tôi luôn sẵn sàng lắng nghe và thảo luận về các cơ hội hợp tác, 
+                        dự án xây dựng mới hoặc bất kỳ yêu cầu tư vấn chuyên môn nào. 
+                        Đừng ngần ngại liên hệ!
+                    </p>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Số điện thoại</h4>
+                            <p>0912 345 6789</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Email</h4>
+                            <p>example@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Địa chỉ</h4>
+                            <p>TP. Hồ Chí Minh, Việt Nam</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Zalo"><i class="fas fa-comment-dots"></i></a>
+                        <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal-right">
+                    <form id="contactForm" onsubmit="return handleFormSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Họ và tên *</label>
+                                <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="Nhập email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Tiêu đề</label>
+                            <input type="text" id="subject" name="subject" placeholder="Tiêu đề tin nhắn">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nội dung *</label>
+                            <textarea id="message" name="message" placeholder="Nhập nội dung tin nhắn..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Gửi tin nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Map Placeholder -->
+            <div style="margin-top: 50px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125418.92252514!2d106.625248!3d10.796712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b5374e4ddf%3A0x4036173e478b440!2zSOG7kyBDaMOtIE1pbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+                    width="100%" 
+                    height="350" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Location Map">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="nav-logo">NM<span>Thuan</span><span class="dot">.</span></span>
+                    <p>
+                        Kỹ sư xây dựng & Quản lý dự án chuyên nghiệp. 
+                        Cam kết mang lại chất lượng, tiến độ và giá trị 
+                        tối ưu cho mọi công trình.
+                    </p>
+                </div>
+                <div>
+                    <h4>Liên kết nhanh</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#experience">Kinh nghiệm</a></li>
+                        <li><a href="#skills">Kỹ năng</a></li>
+                        <li><a href="#portfolio">Dự án</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dịch vụ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quản lý dự án</a></li>
+                        <li><a href="#">Giám sát thi công</a></li>
+                        <li><a href="#">Tư vấn kỹ thuật</a></li>
+                        <li><a href="#">Quản lý chi phí</a></li>
+                        <li><a href="#">An toàn lao động</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Nguyễn Minh Thuận. Thiết kế với <span style="color: var(--red-accent);">❤</span> | Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCROLL TO TOP ========== -->
+    <button class="scroll-top" id="scrollTop" title="Lên đầu trang">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        /* ============================================
+           LOADING SCREEN
+        ============================================ */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 800);
+        });
+
+        /* ============================================
+           NAVBAR SCROLL EFFECT
+        ============================================ */
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        /* ============================================
+           MOBILE NAVIGATION
+        ============================================ */
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        /* ============================================
+           HERO PARTICLES
+        ============================================ */
+        function createParticles() {
+            const container = document.getElementById('heroParticles');
+            if (!container) return;
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = particle.style.height = (Math.random() * 3 + 1) + 'px';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        /* ============================================
+           TYPING EFFECT
+        ============================================ */
+        const typingTexts = [
+            'Project Manager',
+            'Construction Engineer',
+            'Site Supervisor',
+            'Quality Controller',
+            'Team Leader'
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeEffect() {
+            const currentText = typingTexts[textIndex];
+
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                speed = 500;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+
+        /* ============================================
+           SCROLL REVEAL ANIMATION
+        ============================================ */
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach((el, index) => {
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 120;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    // Add staggered delay
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 50);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        /* ============================================
+           ANIMATED SKILL BARS
+        ============================================ */
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateSkillBars);
+        window.addEventListener('load', () => {
+            setTimeout(animateSkillBars, 1000);
+        });
+
+        /* ============================================
+           ANIMATED COUNTERS
+        ============================================ */
+        let countersAnimated = false;
+
+        function animateCounters() {
+            if (countersAnimated) return;
+
+            const statsSection = document.getElementById('statistics');
+            if (!statsSection) return;
+
+            const rect = statsSection.getBoundingClientRect();
+            if (rect.top > window.innerHeight - 100) return;
+
+            countersAnimated = true;
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+
+        window.addEventListener('scroll', animateCounters);
+
+        /* ============================================
+           SCROLL TO TOP
+        ============================================ */
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ============================================
+           CONTACT FORM
+        ============================================ */
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> Đã gửi thành công!';
+                btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    form.reset();
+                }, 3000);
+            }, 1500);
+
+            return false;
+        }
+
+        /* ============================================
+           ACTIVE NAV LINK HIGHLIGHT
+        ============================================ */
+        const sections = document.querySelectorAll('section[id]');
+
+        function highlightNav() {
+            const scrollY = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.querySelectorAll('a:not(.nav-cta)').forEach(link => {
+                        link.style.color = '';
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.style.color = 'var(--white)';
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+
+        /* ============================================
+           SMOOTH SCROLL FOR ANCHOR LINKS
+        ============================================ */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
